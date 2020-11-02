@@ -6,7 +6,7 @@ const router = [...referenceRoute];
 
 const init = async () => {
   const server = Hapi.server({
-    port: process.env.port || 3000,
+    port: process.env.PORT || 3000,
     host: 'localhost',
   });
   server.route(router);
