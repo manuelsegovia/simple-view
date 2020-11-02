@@ -6,12 +6,12 @@ const {
 module.exports = [
   {
     method: 'GET',
-    path: '/api/v1/reference',
+    path: '/api/v1/references',
     handler: listOfReferences,
   },
   {
     method: 'POST',
-    path: '/api/v1/reference',
+    path: '/api/v1/references',
     options: {
       payload: {
         output: 'stream',
