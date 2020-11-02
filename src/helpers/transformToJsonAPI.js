@@ -1,3 +1,4 @@
+const S3_LOCATION = 'https://drawing-repo.s3.amazonaws.com/';
 const apiStd = (data) => ({
   type: 'references',
   id: data._id,
@@ -7,7 +8,7 @@ const apiStd = (data) => ({
   },
   links: {
     self: `api/v1/references/${data._id}`,
-    refFile: `${process.env.S3_LOCATION}${data.fileNameAWS}`,
+    refFile: `${S3_LOCATION}${data.fileNameAWS}`,
   },
 });
 

@@ -10,5 +10,3 @@ module.exports = {
   DB_OPTIONS,
   DB,
 };
-
-// mongodb+srv://<username>:<password>@cluster0.pwboz.mongodb.net/<dbname>?retryWrites=true&w=majority
