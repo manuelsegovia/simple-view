@@ -3,9 +3,10 @@ const { addDocument, getAllDocuments } = require('../services/methodsDB');
 const { stdName } = require('../helpers/stdFileName');
 const { myUpload } = require('../services/uploadToS3');
 const { apiStd } = require('../helpers/transformToJsonAPI');
+const { putUpload } = require('../services/putS3');
 
 const DB_COL = 'references';
-const bucketName = 'drawing-repo';
+const bucketName = process.env.S3_BUCKET_NAME;
 // Insert Document to Mongo and Upload to S3
 const addReference = async (request, h) => {
   const thePayload = request.payload.fileRef;
@@ -38,8 +39,15 @@ const addReference = async (request, h) => {
     Body: thePayload,
   };
   const toS3 = await myUpload(paramsForS3);
-  // console.log(toS3);
+  console.log(toS3);
   return toS3;
+  // try {
+  //   const toS3 = await putUpload(paramsForS3);
+  //   console.log(toS3);
+  //   return toS3;
+  // } catch (error) {
+  //   console.log(error);
+  // }
 };
 //++++++++++++++++++++++++++++
 const listOfReferences = async (request, h) => {
