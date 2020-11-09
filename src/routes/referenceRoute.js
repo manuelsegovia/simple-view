@@ -1,6 +1,7 @@
 const {
   addReference,
   listOfReferences,
+  getPdf,
 } = require('../handlers/referenceHandler');
 
 module.exports = [
@@ -8,6 +9,11 @@ module.exports = [
     method: 'GET',
     path: '/api/v1/references',
     handler: listOfReferences,
+  },
+  {
+    method: 'GET',
+    path: '/api/v1/references/{referenceNumber}',
+    handler: getPdf,
   },
   {
     method: 'POST',
