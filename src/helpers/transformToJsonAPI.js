@@ -1,4 +1,4 @@
-const S3_LOCATION = 'https://drawing-repo.s3.amazonaws.com/';
+const S3_LOCATION = 'https://draw-references.s3.amazonaws.com/';
 const apiStd = (data) => ({
   type: 'references',
   id: data._id,
