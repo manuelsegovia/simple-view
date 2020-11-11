@@ -41,7 +41,7 @@ const addReference = async (request, h) => {
 
   const toS3 = await myUpload(paramsForS3);
   // console.log(toS3);
-  return h.response([add, toS3]);
+  return [add, toS3];
 };
 //++++++++++++++++++++++++++++
 const listOfReferences = async (request, h) => {
@@ -50,11 +50,11 @@ const listOfReferences = async (request, h) => {
 };
 const getPdf = async (request, h) => {
   console.log(request.params.referenceNumber);
-  const result = await main(getAllDocuments, DB_COL, {
+  const results = await main(getAllDocuments, DB_COL, {
     referenceNumber: request.params.referenceNumber,
   });
 
-  return result;
+  return { data: results.map(apiStd) };
 };
 module.exports = {
   addReference,

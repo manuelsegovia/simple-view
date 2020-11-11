@@ -1,5 +1,6 @@
 require('dotenv').config();
 const Hapi = require('@hapi/hapi');
+
 const referenceRoute = require('./routes/referenceRoute');
 
 const router = [...referenceRoute];
@@ -8,6 +9,9 @@ const init = async () => {
   const server = Hapi.server({
     port: process.env.PORT || 3000,
     host: '0.0.0.0',
+    routes: {
+      cors: true,
+    },
   });
   server.route(router);
 
